@@ -1,0 +1,35 @@
+using System;
+
+namespace Questao_1_calcular
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numero = 5;
+            int resultado;
+            resultado = Calcular (numero);
+            Console.WriteLine("Resultado: {0}", resultado);
+            Console.ReadKey();
+        }
+
+        static int Calcular(int numero)
+        {
+            int resultado;
+            if (numero <= 1)
+            {
+                return (1);
+            }
+            else
+            {
+                // o programa nao executa pois chama uma função dentro dela mesma
+                // resolucao:
+                //resultado = numero * (numero -= 1);
+                resultado = numero * Calcular(numero--);
+                return (resultado);
+            }
+        }
+
+
+    }
+}
