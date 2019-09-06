@@ -1,0 +1,81 @@
+using System;
+
+namespace Questao_2_Matriz
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        
+            //Declaração das variaveis
+            String nome;
+
+            int numeroNome = 0, i = 0, j = 0, n = 0;
+            Console.WriteLine("Digite um nome:");
+            nome = Console.ReadLine();
+            numeroNome = nome.Length;
+            char[] vetNome = nome.ToCharArray();  
+            numeroNome = numeroNome + 2;
+            String[,] matriz = new String[3, numeroNome];
+            int cont = 0;
+            int primeiroColUm = 0;
+             // Dois for para pecorrer a linha e a coluna da matriz
+            for (j = 0; j < 3; j++)
+            {                                          
+                for (i = 0; numeroNome > i; i++)
+                {
+                    if (j == 0)
+                    {
+                         // Atribuindo os valores a primeria linha da matriz                                 
+                        cont++;
+                        Console.Write(matriz[j, i] = cont.ToString() + "\t");
+
+                    }
+                    if (j < 1 && i == numeroNome - 1)
+                    {
+                        // saltando para a proxima linha da matriz
+                        Console.WriteLine();  
+                    }
+
+                    if (j == 1 && i == 0)
+                    { 
+                        // descobrindo e atribuindo o valor do primeiro numero da segunda linha da matriz                    
+                        cont++;                     
+                        primeiroColUm = cont * 2;
+                        Console.Write(matriz[1, 0] = primeiroColUm.ToString() + "\t");
+                        i++;
+                    }
+
+                    if (j == 1 && i >= 1)
+                    {
+                        // pecorrendo um vetor char para atribuir o nome do meio da matriz
+                       
+                       while (n < numeroNome - 2)
+                        {
+
+                            Console.Write(matriz[j, i] = vetNome[n] + "\t");
+                            n++;
+                            i++;
+                        }
+                        n = n + 3;
+                        
+                        //atribuindo o ultimo numero da segunda linha da matriz levando em conta os numeros qua nao foram contados pela variavel i
+                        
+                        Console.Write(matriz[j, i] = n + "\t");                     }
+                    if (j < 2  && i == numeroNome - 1)
+                    {
+                        Console.WriteLine();  // saltando para a ultima linha da matriz
+
+                    }
+                   
+                   //pegando o primeiro numero da segunda linha da matriz e subitraindo ele para encontrar os ultimos valores da matriz
+          
+                   if(j == 2 && primeiroColUm > n)           {
+                        primeiroColUm--;
+                        Console.Write(matriz[j,i]= primeiroColUm +"\t");
+                    }
+                }
+            }
+        }
+    }
+}
